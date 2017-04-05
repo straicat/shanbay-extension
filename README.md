@@ -1,5 +1,9 @@
 # 扇贝扩展插件
 
+## 下载
+
+[点我下载](https://github.com/wenjianmuran/shanbay-extension/raw/master/download/shanbay-extension.crx)
+
 ## 功能
 
 ### 免费听力提示
