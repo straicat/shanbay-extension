@@ -17,7 +17,6 @@ function send_ajax(request, url, method, data, tab_id) {
                 request: request,
                 response: j
             });
-            console.log(j);
         },
         error : j => {
             chrome.tabs.sendMessage(tab_id, {
@@ -30,7 +29,6 @@ function send_ajax(request, url, method, data, tab_id) {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendReponse){
-    console.log(request);
     if (request.action == 'authorize'){
         oauth.authorize(sendReponse);
     }

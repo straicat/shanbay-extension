@@ -1,5 +1,4 @@
 function makeRequest(method, url, data, callback){
-    console.log('request url', url);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if (xhr.readyState == 4){

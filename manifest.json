@@ -2,11 +2,9 @@
   "name": "扇贝助手",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "免费听力提示",
+  "description": "免费听力提示，任意网站添加扇贝生词",
   "background": {
-    "scripts": [
-      "lib/jquery-3.2.0.min.js", "lib/config.js", "lib/shanbay_oauth2.js", "js/background.js"
-    ]
+    "scripts": ["lib/jquery-3.2.0.min.js", "lib/config.js", "lib/shanbay_oauth2.js", "js/background.js"]
   },
   "browser_action": {
         "default_icon": "icon.png",
@@ -16,10 +14,7 @@
   "content_scripts": [{
       "matches": ["*://*.shanbay.com/listen/**"],
       "css": ["css/style.css"],
-      "js": [
-        "lib/jquery-3.2.0.min.js",
-        "js/listen.js"
-      ]
+      "js": ["lib/jquery-3.2.0.min.js", "js/listen.js"]
     },
     {
       "matches": ["*://*/**", "file://*/**"],
@@ -27,15 +22,6 @@
       "js": ["lib/jquery-3.2.0.min.js", "lib/jquery.tmpl.min.js", "js/words.js"]
     }
   ],
-  "permissions": [
-    "cookies",
-    "contextMenus",
-    "activeTab",
-    "tabs",
-    "storage",
-    "notifications",
-    "*://*/*",
-    "\u003Call_urls\u003E"
-  ],
+  "permissions": ["cookies", "contextMenus", "activeTab", "tabs", "storage", "notifications", "*://*/*", "\u003Call_urls\u003E"],
   "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }

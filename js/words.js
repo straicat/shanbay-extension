@@ -20,6 +20,11 @@ $(function() {
                 <div><span style="font-weight: bold;">\${cn.pos}</span><span>\${cn.defn}</span></div>
             {{/each}}
         </div>
+        {{if data.retention}}
+            <div style="margin-top: 10px; height: 10px; background-color: #CCC;">
+                <div style="background-color: #009966; width: \${data.retention}%; height: 10px;" class=""></div>
+            </div>
+        {{/if}}
     {{else}}
         \${message}
     {{/if}}
@@ -50,7 +55,6 @@ $(function() {
             $('#shanbay-word-helper').remove();
         }else{
             if($(e.target).isChildAndSelfOf('#shanbay-add-word')) {
-                console.log('shanbay-add-word clicked!');
                 chrome.runtime.sendMessage(
                     {
                         action: 'add',
@@ -59,7 +63,6 @@ $(function() {
                 );
             }
             if($(e.target).isChildAndSelfOf('#shanbay-forget-word')) {
-                console.log('shanbay-forget-word clicked!');
                 chrome.runtime.sendMessage(
                     {
                         action: 'forget',
@@ -72,7 +75,6 @@ $(function() {
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendReponse){
-    console.log(request);
     if(request.message == 'success' && request.action == 'lookup') {
         var j = request.response;
         var tmpd = {
@@ -83,7 +85,6 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse){
             learning_id: j.status_code == 0 ? j.data.learning_id : false,
             message: j.msg
         };
-        console.log(tmpd);
         $('#shanbay-word-tmpl').tmpl(tmpd).appendTo('body');
     }
     if(request.message == 'success' && request.action == 'add') {
