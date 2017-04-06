@@ -5,17 +5,26 @@
   "description": "免费听力提示",
   "background": {
     "scripts": [
-      "js/background.js"
+      "lib/jquery-3.2.0.min.js", "lib/config.js", "lib/shanbay_oauth2.js", "js/background.js"
     ]
   },
-  "content_scripts": [
-    {
+  "browser_action": {
+        "default_icon": "icon.png",
+        "default_title":"defualt title",
+        "default_popup":"popup.html"
+    },
+  "content_scripts": [{
       "matches": ["*://*.shanbay.com/listen/**"],
       "css": ["css/style.css"],
       "js": [
-        "js/jquery-3.2.0.min.js",
+        "lib/jquery-3.2.0.min.js",
         "js/listen.js"
       ]
+    },
+    {
+      "matches": ["*://*/**", "file://*/**"],
+      "css": ["css/style.css"],
+      "js": ["lib/jquery-3.2.0.min.js", "lib/jquery.tmpl.min.js", "js/words.js"]
     }
   ],
   "permissions": [

@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>User</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+            min-width: 357px;
+            overflow-x: hidden;
+            }
+
+            img {
+            margin: 5px;
+            border: 2px solid black;
+            vertical-align: middle;
+            width: 75px;
+            height: 75px;
+            }
+            #logout{position:absolute;right:2px;bottom:5px;cursor:pointer;}
+        </style>
+
+        <!--
+            - JavaScript and HTML must be in separate files:
+            - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+          -->
+    </head>
+    <body>
+        <div id="user" class="">
+            <a id="home" href=""><img id="avatar"></img><span id="nickname"></span></a>
+        </div>
+        <div id="logout" class="">
+            退出
+        </div>
+        <script src="js/popup.js"></script>
+    </body>
+</html>
+
