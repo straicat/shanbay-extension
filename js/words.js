@@ -5,24 +5,24 @@ jQuery.fn.isChildAndSelfOf = function(b) {
 $(function() {
     var INJECT = `
 <script id='shanbay-word-tmpl'  type='text/x-jquery-tmpl'>
-    <div id="shanbay-word-helper" style="border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 6px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); text-align: left; padding: 10px 10px; width: 276px; background-color: #FFF; position: absolute; left: \${posX}px; top: \${posY}px;">
+    <div id="shanbay-word-helper" style="left: \${pos.x}px; top: \${pos.y}px;">
     {{if status_code==0}}
-        <div style="margin-bottom: 10px;">
-            <a target="_blank" href="https://www.shanbay.com/bdc/vocabulary/\${data.id}" style="color: #000; text-decoration: none; font-size: 25px; line-height: 28px;">\${data.content}</a>
+        <div id="shanbay-ext-word-top">
+            <a id="shanbay-ext-word" target="_blank" href="https://www.shanbay.com/bdc/vocabulary/\${data.id}">\${data.content}</a>
             {{if learning_id}}
-                <a id="shanbay-forget-word" href="javascript:;" data="\${data.learning_id}" style="vertical-align: middle; cursor: pointer; font-size: 15px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); display: inline-block; padding: 4px 12px; color: #FFF; text-decoration: none; background-color: #FF9900; float: right; line-height: 20px;">忘记</a>
+                <a class="shanbay-ext-word-btn" id="shanbay-forget-word" href="javascript:;" data="\${data.learning_id}" style="text-decoration: none;">忘记</a>
             {{else}}
-                <a id="shanbay-add-word" href="javascript:;" data="\${data.id}" style="vertical-align: middle; cursor: pointer; font-size: 15px; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); display: inline-block; padding: 4px 12px; color: #FFF; text-decoration: none; background-color: #17A086; float: right; line-height: 20px;">添加</a>
+                <a class="shanbay-ext-word-btn" id="shanbay-add-word" href="javascript:;" data="\${data.id}" style="text-decoration: none;">添加</a>
             {{/if}}
         </div>
         <div>
             {{each(i, cn) data.definitions.cn}}
-                <div><span style="font-weight: bold;">\${cn.pos}</span><span>\${cn.defn}</span></div>
+                <div><span class="shanbay-defn-pos">\${cn.pos}</span><span>\${cn.defn}</span></div>
             {{/each}}
         </div>
         {{if data.retention}}
-            <div style="margin-top: 10px; height: 10px; background-color: #CCC;">
-                <div style="background-color: #009966; width: \${data.retention}%; height: 10px;" class=""></div>
+            <div id="shanbay-word-retention-bar">
+                <div id="shanbay-word-retention" style="width: \${data.retention}%;"></div>
             </div>
         {{/if}}
     {{else}}
@@ -43,8 +43,7 @@ $(function() {
                 {
                     action: 'lookup',
                     word: word,
-                    posX: e.pageX - 138,
-                    posY: e.pageY + 20
+                    pos: {x: e.pageX - 138, y: e.pageY + 20}
                 }
             );
         }
@@ -78,8 +77,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse){
     if(request.message == 'success' && request.action == 'lookup') {
         var j = request.response;
         var tmpd = {
-            posX: request.request.posX,
-            posY: request.request.posY,
+            pos: request.request.pos,
             status_code: j.status_code,
             data: j.data,
             learning_id: j.status_code == 0 ? j.data.learning_id : false,

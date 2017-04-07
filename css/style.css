@@ -1,0 +1,55 @@
+#shanbay-word-helper {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    padding: 10px 10px;
+    width: 276px;
+    background-color: #FFF;
+    position: absolute;
+}
+
+#shanbay-ext-word-top {
+    margin-bottom: 10px;
+}
+
+#shanbay-ext-word {
+    color: #000;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 28px;
+}
+
+.shanbay-ext-word-btn {
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 15px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    padding: 4px 12px;
+    color: #FFF;
+    float: right;
+    line-height: 20px;
+}
+
+#shanbay-forget-word {
+    background-color: #FF9900;
+}
+
+#shanbay-add-word {
+    background-color: #17A086;
+}
+
+.shanbay-defn-pos {
+    font-weight: bold;
+}
+
+#shanbay-word-retention-bar {
+    margin-top: 10px;
+    height: 10px;
+    background-color: #CCC;
+}
+
+#shanbay-word-retention {
+    background-color: #009966;
+    height: 10px;
+}
