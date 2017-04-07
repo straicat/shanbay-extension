@@ -4,6 +4,11 @@ function logout(){
     oauth.clearToken();
 }
 
+function check_settings() {
+    'hint_color' in localStorage ? {} :localStorage.hint_color = '#FFFFFF|#FE007F';
+    'hint_key' in localStorage ? {} : localStorage.hint_key = 'key_8';
+}
+
 function send_ajax(request, url, method, data, tab_id) {
     $.ajax({
         url: url,
@@ -54,4 +59,16 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendReponse){
         var action = request.action;
         send_ajax(request, actionMap[action].url, actionMap[action].method, actionMap[action].data, sender.tab.id);
     }
+
+    if(request.action == 'option') {
+        check_settings();
+        chrome.tabs.sendMessage(sender.tab.id, {
+            action: 'option',
+            message: 'success',
+            request: request,
+            response: localStorage[request.option]
+        })
+    }
 });
+
+check_settings();

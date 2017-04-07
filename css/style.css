@@ -1,3 +1,23 @@
+#shanbay-free-hint {
+    font-size: 22px;
+    line-height: 26px;
+    text-align: center;
+    height: 28px;
+    position: absolute;
+}
+
+.free-hint-btn {
+    float: left;
+    width: 167px;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+    color: #333;
+}
+
+.free-hint-btn:hover {
+    background-color: #F8C1AB;
+}
+
 #shanbay-word-helper {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 6px;
@@ -20,7 +40,7 @@
     line-height: 28px;
 }
 
-.shanbay-ext-word-btn {
+.shanbay-ext-word-btn, .shanbay-ext-word-btn:hover {
     vertical-align: middle;
     cursor: pointer;
     font-size: 15px;
@@ -32,11 +52,19 @@
 }
 
 #shanbay-forget-word {
-    background-color: #FF9900;
+    background-color: #ea8c00;
+}
+
+#shanbay-forget-word:hover {
+    background-color: #c97900;
 }
 
 #shanbay-add-word {
     background-color: #17A086;
+}
+
+#shanbay-add-word:hover {
+    background-color: #048e74;
 }
 
 .shanbay-defn-pos {

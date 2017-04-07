@@ -50,7 +50,3 @@ function renderUser(){
 document.addEventListener('DOMContentLoaded', function () {
     renderUser();
 });
-
-
-
-
