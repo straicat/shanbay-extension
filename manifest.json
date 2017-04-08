@@ -17,13 +17,19 @@
     "128": "img/icon_128.png"
   },
   "options_page": "html/options.html",
-  "content_scripts": [{
-      "matches": ["*://*.shanbay.com/listen/sentence/**", "*://*.shanbay.com/listen/review/**"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.shanbay.com/listen/sentence/*", "*://*.shanbay.com/listen/review/*"],
       "css": ["css/style.css"],
       "js": ["lib/jquery.min.js", "lib/jquery.tmpl.min.js", "js/listen.js"]
     },
     {
-      "matches": ["*://*/**", "file://*/**"],
+      "matches": ["*://www.shanbay.com/team/manage/*"],
+      "css": ["css/style.css"],
+      "js": ["lib/jquery.min.js", "js/team.js"]
+    },
+    {
+      "matches": ["*://*/*", "file://*/*"],
       "css": ["css/style.css"],
       "js": ["lib/jquery.min.js", "lib/jquery.tmpl.min.js", "js/words.js"]
     }
