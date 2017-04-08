@@ -6,18 +6,6 @@
     position: absolute;
 }
 
-.free-hint-btn {
-    float: left;
-    width: 167px;
-    border-right: 1px solid #ccc;
-    cursor: pointer;
-    color: #333;
-}
-
-.free-hint-btn:hover {
-    background-color: #F8C1AB;
-}
-
 #shanbay-word-helper {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 6px;
@@ -27,6 +15,7 @@
     width: 276px;
     background-color: #FFF;
     position: absolute;
+    z-index: 999;
 }
 
 #shanbay-ext-word-top {
@@ -40,8 +29,9 @@
     line-height: 28px;
 }
 
-.shanbay-ext-word-btn, .shanbay-ext-word-btn:hover {
+.shanbay-ext-word-btn, .shanbay-ext-word-btn:hover, .shanbay-ext-word-btn:link {
     vertical-align: middle;
+    text-decoration: none;
     cursor: pointer;
     font-size: 15px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);

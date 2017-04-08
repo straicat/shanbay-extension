@@ -28,6 +28,6 @@
       "js": ["lib/jquery.min.js", "lib/jquery.tmpl.min.js", "js/words.js"]
     }
   ],
-  "permissions": ["cookies", "contextMenus", "activeTab", "tabs", "storage", "notifications", "*://*/*", "\u003Call_urls\u003E"],
+  "permissions": ["cookies", "activeTab",  "storage", "*://*/*"],
   "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }
