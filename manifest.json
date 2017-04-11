@@ -16,13 +16,7 @@
     "48": "img/icon_48.png",
     "128": "img/icon_128.png"
   },
-  "options_page": "html/options.html",
   "content_scripts": [
-    {
-      "matches": ["*://www.shanbay.com/team/manage/*"],
-      "css": ["css/style.css"],
-      "js": ["lib/jquery.min.js", "js/team.js"]
-    },
     {
       "matches": ["*://*/*", "file://*/*"],
       "css": ["css/style.css"],

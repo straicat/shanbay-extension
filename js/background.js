@@ -5,8 +5,6 @@ function logout(){
 }
 
 function check_settings() {
-    'hint_color' in localStorage ? {} :localStorage.hint_color = '#FFFFFF|#FE007F';
-    'hint_key' in localStorage ? {} : localStorage.hint_key = 'key_8';
     'access_token' in localStorage ? {} : oauth.authorize(function(){});
 }
 
