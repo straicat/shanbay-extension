@@ -7,12 +7,7 @@ function logout(){
 function check_settings() {
     'hint_color' in localStorage ? {} :localStorage.hint_color = '#FFFFFF|#FE007F';
     'hint_key' in localStorage ? {} : localStorage.hint_key = 'key_8';
-    'used' in localStorage ? (
-        'access_token' in localStorage ? {} : oauth.authorize(function(){})
-    ) : function() {
-        window.open('../html/help.html');
-        localStorage.used = 1;
-    }();
+    'access_token' in localStorage ? {} : oauth.authorize(function(){});
 }
 
 function send_ajax(request, url, method, data, tab_id) {
