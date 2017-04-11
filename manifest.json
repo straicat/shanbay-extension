@@ -1,8 +1,8 @@
 {
   "name": "扇贝助手",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 2,
-  "description": "免费听力提示，任意网站添加扇贝生词",
+  "description": "任意网站添加扇贝生词",
   "background": {
     "scripts": ["lib/jquery.min.js", "lib/config.js", "lib/shanbay_oauth2.js", "js/background.js"]
   },
@@ -18,11 +18,6 @@
   },
   "options_page": "html/options.html",
   "content_scripts": [
-    {
-      "matches": ["*://*.shanbay.com/listen/sentence/*", "*://*.shanbay.com/listen/review/*"],
-      "css": ["css/style.css"],
-      "js": ["lib/jquery.min.js", "lib/jquery.tmpl.min.js", "js/listen.js"]
-    },
     {
       "matches": ["*://www.shanbay.com/team/manage/*"],
       "css": ["css/style.css"],
