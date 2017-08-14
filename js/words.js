@@ -81,7 +81,7 @@ $(function() {
     });
 
     $(document).keydown(e => {
-        if(e.ctrlKey) {
+        if(e.altKey) {
             var word = window.getSelection().toString().trim();
             if(undefined != word && null != word && word.length > 0 && null != mousePos) {
                 chrome.runtime.sendMessage(
